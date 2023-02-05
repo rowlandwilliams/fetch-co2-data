@@ -4,8 +4,8 @@
   "description": "Serverless aws-nodejs-typescript template",
   "main": "serverless.ts",
   "scripts": {
-    "scrape": "ts-node src/functions/scrapeArticles/handler.ts",
-    "invoke:local": "serverless invoke local --function scrapeArticles"
+    "scrape": "ts-node src/functions/getClimateData/handler.ts",
+    "invoke:local": "serverless invoke local --function getClimateData"
   },
   "engines": {
     "node": ">=14.15.0"
@@ -19,6 +19,7 @@
     "@serverless/typescript": "^2.23.0",
     "@types/aws-lambda": "^8.10.71",
     "@types/node": "^14.18.36",
+    "@types/node-fetch": "^2.6.2",
     "esbuild": "^0.14.11",
     "json-schema-to-ts": "^1.5.0",
     "serverless": "^2.23.0",

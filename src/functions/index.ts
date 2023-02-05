@@ -1,1 +1,1 @@
-export { default as scrapeArticles } from "./getClimateData";
+export { default as getClimateData } from "./getClimateData";
