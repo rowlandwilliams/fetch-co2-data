@@ -23,20 +23,20 @@ const getClimateData = async () => {
       )
       .map((splitDateWithValue) => ({
         year: splitDateWithValue[0],
-        date: `${splitDateWithValue[0]}-${splitDateWithValue[1] + 1}-${
-          splitDateWithValue[2]
-        }`,
+        date: `2020-${splitDateWithValue[1] + 1}-${splitDateWithValue[2]}`,
         value: splitDateWithValue[3],
       }));
 
     const allYears = Array.from(new Set(matches.map((match) => match.year)));
 
-    const groupedMatches = allYears.map((year) => ({
-      year: year,
-      values: matches
-        .filter((match) => match.year === year)
-        .map(({ date, value }) => ({ date, value })),
-    }));
+    const groupedMatches = allYears
+      .map((year) => ({
+        year: year,
+        values: matches
+          .filter((match) => match.year === year)
+          .map(({ date, value }) => ({ date, value })),
+      }))
+      .filter(({ values }) => values.length > 1);
 
     const params = {
       Bucket: process.env.S3_BUCKET_NAME,
